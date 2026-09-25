@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: opp-data-router-ocp4.22-fips
+  namespace: policies
+data:
+  MAP_TESTS: "true"
+  DR__RP__CR_COMP_NAME: lp-interop--OPP
