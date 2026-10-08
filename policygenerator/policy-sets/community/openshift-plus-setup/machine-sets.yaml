@@ -58,6 +58,11 @@ spec:
                          {{- $ami_default := (index $bootImages "architectures" "x86_64" "images" "aws" "regions" $region "image") -}}
                          {{- dig "spec" "template" "spec" "providerSpec" "value" "ami" "id" $ami_default (lookup "machine.openshift.io/v1beta1" "MachineSet" "openshift-machine-api" $msName) -}}'
                   apiVersion: awsproviderconfig.openshift.io/v1beta1
+                  blockDevices:
+                  - ebs:
+                      encrypted: true
+                      volumeSize: 120
+                      volumeType: gp3
                   credentialsSecret:
                     name: aws-cloud-credentials
                   deviceIndex: 0
